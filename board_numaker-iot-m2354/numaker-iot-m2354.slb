@@ -1,7 +1,7 @@
 {
     "version":"v2.0.1",
     "group":"Nuvoton",
-    "title": "NuMaker-HMI-M2354",
+    "title": "NuMaker-IoT-M2354",
     "width": 320,
     "height": 240,
     "width_min": 320,
@@ -16,11 +16,11 @@
     "lvgl_export_path": "./",
     "lvgl_include_path": "lvgl.h",
     "supported_lvgl_version": "9.2.*",
-    "pattern_match_files": "./board/numaker-hmi-m2354/lv_conf.h",
+    "pattern_match_files": "./board/numaker-iot-m2354/lv_conf.h",
     "language":"C",
     "flat_export": false,
-    "ui_export_path":"./board/numaker-hmi-m2354/sls_files",
-    "url":"https://www.nuvoton.com/products/gui-solution/gui-platform/numaker-hmi-m2354/",
+    "ui_export_path":"./board/numaker-iot-m2354/sls_files",
+    "url":"https://www.nuvoton.com/products/iot-solution/iot-platform/numaker-iot-m2354/",
     "short_description": "The NuMaker-HMI-M2354 is designed for project evaluation, prototype development and validation with Human Machine Interface function.",
     "long_description": "The NuMaker-HMI-M2354 integrates touchscreen display, rich serial port service and I/O interface."
 }
