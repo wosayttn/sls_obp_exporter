@@ -1,0 +1,33 @@
+name: Export SLS OBP
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install dependencies (Linux)
+        if: matrix.os == 'ubuntu-latest'
+        shell: bash
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3
+
+      - name: Export SLS OBP
+        shell: bash
+        run: |
+          pip install -r requirements.txt
+          python release.py
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: lv_port_nuvoton-${{ matrix.project }}
+          path: ${{ github.workspace }}/release
