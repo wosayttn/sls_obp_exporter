@@ -8,7 +8,7 @@ BOARDS = np.array([
     [r'numaker-hmi-n9h30',      r'n9h30'],
     [r'numaker-hmi-n9h31',      r'n9h31'],
     [r'numaker-iiot-nuc980gxd', r'nuc980'],
-    [r'numaker-hmi-m032',       r'm031'],
+    #[r'numaker-hmi-m032',       r'm031'],
     [r'numaker-hmi-m2354',      r'm2354'],
     [r'numaker-hmi-m2l31',      r'm2l31'],
     [r'numaker-iot-m2354',      r'm2354'],
@@ -28,7 +28,7 @@ BSPS = np.array([
     [r'n9h30', r'Driver', r'Script'],
     [r'n9h31', r'Driver', r'Script'],
     [r'nuc980', r'Driver', r'Script'],
-    [r'm031', r'Library/Device/Nuvoton', r'Library/StdDriver', r'Library/CMSIS/Core/Include'],
+    #[r'm031', r'Library/Device/Nuvoton', r'Library/StdDriver', r'Library/CMSIS/Core/Include'],
     [r'm2354', r'Library/Device/Nuvoton', r'Library/StdDriver', r'Library/CMSIS/Include'],
     [r'm2l31', r'Library/Device/Nuvoton', r'Library/StdDriver', r'Library/CMSIS/Core/Include'],
     [r'm3331', r'Library/Device/Nuvoton', r'Library/StdDriver', r'Library/CMSIS/Include'],
@@ -52,4 +52,4 @@ BOARDS_BSP_SET = set(BOARDS_BSP)
 PWD = os.getcwd()
 LV_PORT_NUVOTON = os.path.abspath(os.path.join(PWD, 'lv_port_nuvoton'));
 LV_PORT_NUVOTON_BSP = os.path.abspath(os.path.join(PWD, 'lv_port_nuvoton', 'bsp'));
-SLS_OBP_EXCLUDE_LIST = ['.git', '.github', 'tools', 'lvgl', 'FatFs-r15']
+SLS_OBP_EXCLUDE_LIST = ['.git', '.github', 'tools', 'lvgl', 'FatFs-r15', 'numaker-hmi-m032', 'm031']
