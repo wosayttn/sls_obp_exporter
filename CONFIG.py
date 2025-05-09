@@ -28,7 +28,7 @@ BSPS = np.array([
     [r'n9h30', r'Driver', r'Script'],
     [r'n9h31', r'Driver', r'Script'],
     [r'nuc980', r'Driver', r'Script'],
-    [r'm031', r'Library/Device/Nuvoton', r'Library/StdDriver', r'Library/CMSIS/Core/Include'],
+    #[r'm031', r'Library/Device/Nuvoton', r'Library/StdDriver', r'Library/CMSIS/Core/Include'],
     [r'm2354', r'Library/Device/Nuvoton', r'Library/StdDriver', r'Library/CMSIS/Include'],
     [r'm2l31', r'Library/Device/Nuvoton', r'Library/StdDriver', r'Library/CMSIS/Core/Include'],
     [r'm3331', r'Library/Device/Nuvoton', r'Library/StdDriver', r'Library/CMSIS/Include'],
