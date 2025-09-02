@@ -24,19 +24,26 @@ jobs:
           pip install -r requirements.txt
           python release.py
 
-      - name: Upload each zip separately
-        id: upload-zips
+      - name: Find all zip files
+        id: find_zips
         run: |
-          mkdir -p temp-artifacts
-          for zipfile in ${{ github.workspace }}/release/*.zip; do
-            [ -f "$zipfile" ] || continue
-            artifact_name=$(basename "$zipfile" .zip)
-            mkdir -p "temp-artifacts/$artifact_name"
-            cp "$zipfile" "temp-artifacts/$artifact_name/"
+          echo "files="
+          for f in ${{ github.workspace }}/release/*.zip; do
+            if [ -f "$f" ]; then
+              echo "files<<EOF" >> $GITHUB_OUTPUT
+              echo "$f" >> $GITHUB_OUTPUT
+              echo "EOF" >> $GITHUB_OUTPUT
+            fi
           done
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ matrix.artifact }}
-          path: temp-artifacts/*
+        shell: bash
+        run: |
+          for zipfile in ${{ github.workspace }}/release/*.zip; do
+            [ -f "$zipfile" ] || continue
+            artifact_name=$(basename "$zipfile" .zip)
+            echo "Uploading $zipfile as artifact: $artifact_name"
+            gh workflow run upload-artifact \
+              --name "$artifact_name" \
+              --path "$zipfile"
+          done
