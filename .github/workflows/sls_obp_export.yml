@@ -6,7 +6,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -14,11 +13,10 @@ jobs:
           submodules: recursive
 
       - name: Install dependencies (Linux)
-        if: matrix.os == 'ubuntu-latest'
         shell: bash
         run: |
           sudo apt-get update
-          sudo apt-get install -y python3
+          sudo apt-get install -y python3 python3-pip
 
       - name: Export SLS OBP
         shell: bash
@@ -26,8 +24,18 @@ jobs:
           pip install -r requirements.txt
           python release.py
 
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: lv_port_nuvoton-SLS-OBP
-          path: ${{ github.workspace }}/release
+      - name: Find all zip files
+        id: files
+        run: |
+          files=($(ls ${{ github.workspace }}/release/*.zip))
+          echo "files=${files[@]}" >> $GITHUB_OUTPUT
+
+      - name: Upload each zip as separate artifact
+        shell: bash
+        run: |
+          for file in ${{ github.workspace }}/release/*.zip; do
+            [ -f "$file" ] || continue
+            name=$(basename "$file" .zip)
+            echo "Uploading $file as artifact: $name"
+            gh actions upload-artifact "$file" --name "$name"
+          done
