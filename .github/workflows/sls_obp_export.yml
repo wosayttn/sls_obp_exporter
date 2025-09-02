@@ -6,44 +6,47 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      zip-files: ${{ steps.collect.outputs.zip-files }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
           submodules: recursive
 
-      - name: Install dependencies (Linux)
-        shell: bash
+      - name: Install Python
         run: |
           sudo apt-get update
           sudo apt-get install -y python3 python3-pip
 
       - name: Export SLS OBP
-        shell: bash
         run: |
           pip install -r requirements.txt
           python release.py
 
-      - name: Find all zip files
-        id: find_zips
+      # 收集所有 zip 名稱
+      - name: Collect zip files
+        id: collect
         run: |
-          echo "files="
+          files=()
           for f in ${{ github.workspace }}/release/*.zip; do
-            if [ -f "$f" ]; then
-              echo "files<<EOF" >> $GITHUB_OUTPUT
-              echo "$f" >> $GITHUB_OUTPUT
-              echo "EOF" >> $GITHUB_OUTPUT
-            fi
+            [ -f "$f" ] || continue
+            files+=("$(basename "$f")")
           done
+          echo "zip-files=${files[*]}" >> $GITHUB_OUTPUT
 
-      - name: Upload artifacts
-        shell: bash
-        run: |
-          for zipfile in ${{ github.workspace }}/release/*.zip; do
-            [ -f "$zipfile" ] || continue
-            artifact_name=$(basename "$zipfile" .zip)
-            echo "Uploading $zipfile as artifact: $artifact_name"
-            gh workflow run upload-artifact \
-              --name "$artifact_name" \
-              --path "$zipfile"
-          done
+  upload:
+    runs-on: ubuntu-latest
+    needs: build
+    strategy:
+      matrix:
+        zip-file: ${{ fromJSON('["' + needs.build.outputs.zip-files.replace(' ', '","') + '"]') }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Upload ${{ matrix.zip-file }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.zip-file }}
+          path: ${{ github.workspace }}/release/${{ matrix.zip-file }}
