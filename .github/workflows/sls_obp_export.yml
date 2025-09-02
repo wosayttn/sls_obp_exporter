@@ -6,47 +6,26 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    outputs:
-      zip-files: ${{ steps.collect.outputs.zip-files }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
           submodules: recursive
 
-      - name: Install Python
+      - name: Install dependencies (Linux)
+        shell: bash
         run: |
           sudo apt-get update
-          sudo apt-get install -y python3 python3-pip
+          sudo apt-get install -y python3
 
       - name: Export SLS OBP
+        shell: bash
         run: |
           pip install -r requirements.txt
           python release.py
 
-      # 收集所有 zip 名稱
-      - name: Collect zip files
-        id: collect
-        run: |
-          files=()
-          for f in ${{ github.workspace }}/release/*.zip; do
-            [ -f "$f" ] || continue
-            files+=("$(basename "$f")")
-          done
-          echo "zip-files=${files[*]}" >> $GITHUB_OUTPUT
-
-  upload:
-    runs-on: ubuntu-latest
-    needs: build
-    strategy:
-      matrix:
-        zip-file: ${{ fromJSON('["' + needs.build.outputs.zip-files.replace(' ', '","') + '"]') }}
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: Upload ${{ matrix.zip-file }}
+      - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.zip-file }}
-          path: ${{ github.workspace }}/release/${{ matrix.zip-file }}
+          name: nuvoton-sls-obp-all
+          path: ${{ github.workspace }}/release
