@@ -2,7 +2,7 @@
 
 The NuMaker-HMI-M487 integrates touchscreen display, voice input/output, rich serial port service and I/O interface, providing multiple external storage methods.
 
-## v2.0.2
+## v2.1.0
 
 This OBP includes multiple project files, such as NuEclipse, MDK Keil, CSolution, and IAR, to facilitate quick evaluation.
 

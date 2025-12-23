@@ -8,7 +8,7 @@ It supports a low power supply voltage range from 1.6V to 3.6V and can operate w
 
 The NuMaker-HMI-M5531 integrates touchscreen display, voice input/output, rich serial port service and I/O interface, providing multiple external storage methods.
 
-## v2.0.2
+## v2.1.0
 
 This OBP includes multiple project files, such as NuEclipse, MDK Keil, CSolution, and IAR, to facilitate quick evaluation.
 

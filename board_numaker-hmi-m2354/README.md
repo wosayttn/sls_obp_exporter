@@ -6,7 +6,7 @@ GUI-enhanced applications and there is a bottom board as a main control board an
 It is designed for LCD display or GUI evaluation, prototype development and function validation. In a summary,
 users can use it to create a powerful and stunning graphics for the embedded system.
 
-## v2.0.2
+## v2.1.0
 
 This OBP includes multiple project files, such as NuEclipse, MDK Keil and IAR, to facilitate quick evaluation.
 

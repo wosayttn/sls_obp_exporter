@@ -1,5 +1,5 @@
 {
-    "version":"v2.0.2",
+    "version":"v2.1.0",
     "group":"Nuvoton",
     "title": "NuMaker-IoT-M2354",
     "width": 320,
@@ -15,7 +15,7 @@
     "color_depth": "16",
     "lvgl_export_path": "./",
     "lvgl_include_path": "lvgl.h",
-    "supported_lvgl_version": "9.2.*",
+    "supported_lvgl_version": "9.4.*",
     "pattern_match_files": "./board/numaker-iot-m2354/lv_conf.h",
     "language":"C",
     "flat_export": false,

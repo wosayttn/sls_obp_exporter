@@ -9,7 +9,7 @@ The NuMaker-HMI-MA35H0-A1 has rich peripherals such as 1 set of megabit Ethernet
 SPI, I²C, UART, and 2 sets of RS-485/RS-232 serial communication ports for users to facilitate the evaluation in HMI and industrial control,
 home appliances, 2-wheel cluster, medical device, new energy applications, ML (Machine Learning) or your creative applications.
 
-## v2.0.2
+## v2.1.0
 
 This OBP includes multiple project files, such as NuEclipse, to facilitate quick evaluation.
 

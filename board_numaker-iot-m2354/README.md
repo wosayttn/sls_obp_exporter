@@ -7,7 +7,7 @@ China and the United States. At the same time, the Arduino expansion interface d
 the data to the back-end server. In addition, since the M2354 IoT Security series itself has an LCD Controller and many security functions,
 Nuvoton has also developed a function demonstration software and it comes with the development version.
 
-## v2.0.2
+## v2.1.0
 
 This OBP includes multiple project files, such as NuEclipse, MDK Keil and IAR, to facilitate quick evaluation.
 

@@ -8,7 +8,7 @@ The NuMaker-HMI-MA35D1-S1 has rich peripherals such as 2 sets of Gigabit Etherne
 2 sets of CAN FD, and SPI, I2C, UART, RS-485 serial communication ports for users to facilitate the evaluation in HMI and industrial control,
 home appliances, 2-wheel cluster, medical device, new energy applications, ML (Machine Learning) or your creative applications.
 
-## v2.0.2
+## v2.1.0
 
 This OBP includes multiple project files, such as NuEclipse, to facilitate quick evaluation.
 

@@ -9,7 +9,7 @@
 - H.264 Video decompression
 - UART X 1
 
-## v2.0.2
+## v2.1.0
 
 This OBP includes multiple project files, such as NuEclipse and MDK Keil, to facilitate quick evaluation.
 

@@ -9,7 +9,7 @@ SPI NAND Flash and SD/EMMC. All functions of the NUC980DK71YC are placed on the 
 JTAG, CAN and EBI. Furthermore, the board provides Arduino Uno compatible interface for expansion. You can use it to develop and verify
 applications to emulate the real behavior.
 
-## v2.0.2
+## v2.1.0
 
 This OBP includes multiple project files, such as NuEclipse and MDK Keil, to facilitate quick evaluation.
 

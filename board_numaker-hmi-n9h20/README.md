@@ -8,7 +8,7 @@
 - 4.3” ( 480x272 ) 24-bit RGB LCD
 - UART x 1
 
-## v2.0.2
+## v2.1.0
 
 This OBP includes multiple project files, such as NuEclipse and MDK Keil, to facilitate quick evaluation.
 
