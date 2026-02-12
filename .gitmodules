@@ -1,3 +1,4 @@
 [submodule "lv_port_nuvoton"]
 	path = lv_port_nuvoton
 	url = https://github.com/wosayttn/lv_port_nuvoton
+	branch = lvgl_v9
