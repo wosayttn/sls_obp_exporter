@@ -50,4 +50,4 @@ BOARDS_BSP_SET = set(BOARDS_BSP)
 PWD = os.getcwd()
 LV_PORT_NUVOTON = os.path.abspath(os.path.join(PWD, 'lv_port_nuvoton'));
 LV_PORT_NUVOTON_BSP = os.path.abspath(os.path.join(PWD, 'lv_port_nuvoton', 'bsp'));
-SLS_OBP_EXCLUDE_LIST = ['.git', '.github', 'tools', 'lvgl', 'FatFs-r15', 'misc']
+SLS_OBP_EXCLUDE_LIST = ['.git', '.github', 'tools', 'lvgl', 'FatFs-r15', 'misc', 'arm2d']
